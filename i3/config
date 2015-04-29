@@ -1,0 +1,134 @@
+set $mod Mod4
+
+set $background #1e1e1e
+set $foreground #c3c3c3
+
+# Display Options
+font pango:Inconsolata 8, FontAwesome 8
+client.focused          #464b50 #464b50 #464b50 #464b50
+client.unfocused        #464b50 #464b50 #464b50 #464b50
+client.focused_inactive #464b50 #464b50 #464b50 #464b50
+client.urgent           #464b50 #464b50 #464b50 #464b50
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Run apps
+bindsym $mod+Return exec xfce4-terminal
+
+# Lock
+bindsym $mod+Control+l exec lock
+
+#dmenu
+bindsym $mod+d exec dmenu_run
+
+# Shutdown
+bindsym $mod+Control+r exec ask-to-shutdown
+
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#bar {
+#  font pango:Inconsolata 8, FontAwesome 8
+#  strip_workspace_numbers true
+#  status_command i3status
+#  position top
+#
+#  colors {
+#    statusline  #c3c3c3
+#    background  #1f1f1f
+#
+#    #name              #border #bg     #text
+#    focused_workspace  #323537 #323537 #c3c3c3
+#    active_workspace   #464b50 #464b50 #c3c3c3
+#    inactive_workspace #1e1e1e #1e1e1e #c3c3c3
+#    urgent_workspace   #1e1e1e #1e1e1e #c3c3c3
+#  }
+#}
+
+bar {
+        position top
+        status_command ~/.i3/conky
+        colors { 
+                statusline #AAAAAA
+                background #1e160b
+                focused_workspace #333333 #333333 #FFFFFF
+                inactive_workspace #484848 #484848 #AAAAAA
+        }
+}
+
+exec --no-startup-id /bin/sh ~/.fehbg
+
+gaps inner 8
+gaps outer 4
+for_window [class="^.*"] border pixel 1
