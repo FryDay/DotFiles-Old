@@ -25,7 +25,7 @@ TEXT
   #{"full_text": "Mem: [$membar] ", "color":"\#B58900"},
 { "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
 #Shows current CPU usage with a bar
-  {"full_text": "CPU: [$cpubar] ", "color":"\#00A9B5"},
+  {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#00A9B5"},
 #Shows temperature of GPU. Only works with NVIDIA cards with the proprietary drivers installed. Could be replaced with a lm-sensors-provided temperature
 #  {"full_text": "[${exec nvidia-settings -q gpucoretemp -t}°C] ","color":"\#33CC99"},
 #Shows upime
