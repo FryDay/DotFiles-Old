@@ -11,8 +11,7 @@ override_utf8_locale yes
 TEXT
 [
 #Finds current volume. May need modified depending on your setup
-  {"full_text": "Vol: ${exec amixer get Master | grep -o "\[.*%\]"} ", 
-"color":"\#268BD2"},
+ #{"full_text": "Vol: ${exec amixer get Master | grep -o "\[.*%\]"} ","color":"\#268BD2"},
 #Shows current user
   { "full_text": "[${exec whoami}] ", "color":"\#FF00F3" },
 #Shows hostname (heart for lack of better symbol)
@@ -23,16 +22,15 @@ TEXT
   #{"full_text": "D: [${downspeed wlp4s0}] ", "color":"\#00fff2"},
 #Shows current memory usage with a bar
   #{"full_text": "Mem: [$membar] ", "color":"\#B58900"},
-{ "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+ { "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
 #Shows current CPU usage with a bar
-  {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#00A9B5"},
+ {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#00A9B5"},
 #Shows temperature of GPU. Only works with NVIDIA cards with the proprietary drivers installed. Could be replaced with a lm-sensors-provided temperature
 #  {"full_text": "[${exec nvidia-settings -q gpucoretemp -t}°C] ","color":"\#33CC99"},
 #Shows upime
   {"full_text": "Uptime: [${uptime}] ","color": "\#dc322f"},
 #Shows time
-  {"full_text": "[${time %a %d %b} ${time %r}] ","color": 
-"\#2fdc57"}
+  {"full_text": "[${time %a %d %b} ${time %r}] ","color":"\#2fdc57"}
 ],
 
 #See

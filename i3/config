@@ -14,7 +14,7 @@ client.urgent           #464b50 #464b50 #464b50 #464b50
 floating_modifier $mod
 
 # Run apps
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec termite
 
 # Lock
 bindsym $mod+Control+l exec lock
@@ -131,4 +131,5 @@ exec --no-startup-id /bin/sh ~/.fehbg
 
 gaps inner 8
 gaps outer 4
+smart_gaps on
 for_window [class="^.*"] border pixel 1
