@@ -5,6 +5,7 @@ update_interval	  1
 total_run_times	  0
 short_units	  yes
 pad_percents	  3
+times_in_seconds true
 
 override_utf8_locale yes
 
@@ -25,12 +26,12 @@ TEXT
  { "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
 #Shows current CPU usage with a bar
  {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#00A9B5"},
+#Shows battery percentage and time remaining
+ {"full_text": "Battery: [${battery_percent}% - ${format_time {$battery_time} "\h:\m"}] ","color": "\#ff6600"},
 #Shows temperature of GPU. Only works with NVIDIA cards with the proprietary drivers installed. Could be replaced with a lm-sensors-provided temperature
 #  {"full_text": "[${exec nvidia-settings -q gpucoretemp -t}°C] ","color":"\#33CC99"},
 #Shows upime
-  {"full_text": "Uptime: [${uptime}] ","color": "\#dc322f"},
+  {"full_text": "Uptime: [${format_time ${uptime} "\h:\m"}] ","color": "\#dc322f"},
 #Shows time
   {"full_text": "[${time %a %d %b} ${time %r}] ","color":"\#2fdc57"}
 ],
-
-#See
