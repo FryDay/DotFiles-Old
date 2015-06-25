@@ -8,7 +8,7 @@
 
 dir=~/DotFiles                    # dotfiles directory
 olddir=~/DotFiles_Old             # old dotfiles backup directory
-files="i3"    # list of files/folders to symlink in homedir
+files="i3 vimrc"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
