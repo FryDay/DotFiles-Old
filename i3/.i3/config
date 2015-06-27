@@ -4,7 +4,7 @@ set $background #1e1e1e
 set $foreground #c3c3c3
 
 # Display Options
-font pango:Inconsolata 8, FontAwesome 8
+font pango:Inconsolata 16, FontAwesome 16
 client.focused          #464b50 #464b50 #464b50 #464b50
 client.unfocused        #464b50 #464b50 #464b50 #464b50
 client.focused_inactive #464b50 #464b50 #464b50 #464b50
@@ -138,3 +138,5 @@ smart_gaps on
 for_window [class="^.*"] border pixel 1
 
 exec compton -b
+
+exec feh --bg-scale /Pictures/programmer-code.jpg
