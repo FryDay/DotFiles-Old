@@ -45,6 +45,11 @@
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
+#Mute
+"amixer set Master toggle"
+    m:0x0 + c:121
+    XF86AudioMute 
+
 #Backlight Down
 "xbacklight -dec 40"
     m:0x0 + c:232
@@ -54,6 +59,11 @@
 "xbacklight -inc 40"
     m:0x0 + c:233
     XF86MonBrightnessUp 
+
+#Touchpad
+"sh /usr/local/bin/touchpad_toggle.sh"
+    m:0x0 + c:179
+    XF86Tools 
 
 #
 # End of xbindkeys configuration
