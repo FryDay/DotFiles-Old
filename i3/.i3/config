@@ -31,6 +31,9 @@ bindsym $mod+Control+s exec spotify --force-device-scale-factor=1.5
 # Shutdown
 bindsym $mod+Control+r exec ask-to-shutdown
 
+# Suspend
+bindsym  $mod+Control+Shift+l exec systemctl suspend
+
 bindsym $mod+Shift+q kill
 
 # change focus
