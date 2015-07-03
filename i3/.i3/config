@@ -26,7 +26,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # Spotify
-bindsym $mod+Control+s exec spotify --force-device-scale-factor=1.5
+bindsym $mod+Control+s exec spotify
 
 # Shutdown
 bindsym $mod+Control+r exec ask-to-shutdown
