@@ -1,5 +1,5 @@
 [options]
-font = Monospace 12
+font = Monospace 10
 
 [colors]
 
@@ -7,7 +7,7 @@ font = Monospace 12
 foreground      = #66ff66
 foreground_bold = #66ff66
 cursor          = #66ff66
-background      = rgba(16,16,16,0.90)
+background      = rgba(16,16,16,0.8)
 
 # black
 color0  = #1c1c1c
