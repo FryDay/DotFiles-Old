@@ -12,20 +12,15 @@ override_utf8_locale yes
 TEXT
 [
 #Shows current user
-    { "full_text": "[${exec whoami}] ", "color":"\#FF00F3" },
-#Shows hostname (heart for lack of better symbol)
-    {"full_text": "[${exec hostname} ${exec uname -r}] ", "color":"\#8c62ff"},
-#Shows uploadspeed
-#   {"full_text": "U: [${upspeed wlp4s0}] ", "color":"\#ff0000"},
-#Shows downloadspeed
-#   {"full_text": "D: [${downspeed wlp4s0}] ", "color":"\#00fff2"},
-#Shows current memory usage with a bar
-#   {"full_text": "Mem: [$membar] ", "color":"\#B58900"},
-    {"full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+    { "full_text": "  ${exec whoami} ", "color":"\#FF00F3" },
+#Shows hostname
+    {"full_text": "  ${exec hostname} ${exec uname -r} ", "color":"\#8c62ff"},
+#Shows current memory usage
+    {"full_text" : "  ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
 #Shows current CPU usage with a bar
-    {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#00A9B5"},
+    {"full_text": "  ${cpu cpu0}% ", "color":"\#00A9B5"},
 #Shows upime
-    {"full_text": "Uptime: [${format_time ${uptime} "\h:\m"}] ","color": "\#dc322f"},
+    {"full_text": "  ${format_time ${uptime} "\h:\m"} ","color": "\#dc322f"},
 #Shows time
-    {"full_text": "[${time %a %d %b} ${time %r}] ","color":"\#2fdc57"}
+    {"full_text": "  ${time %a %d %b} ${time %r} ","color":"\#2fdc57"}
 ],
