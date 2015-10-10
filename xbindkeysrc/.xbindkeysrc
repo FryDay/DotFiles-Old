@@ -36,12 +36,12 @@
 
 
 #Vol Down
-"amixer set Master 10%-"
+"amixer set Master 5%-"
     m:0x0 + c:122
     XF86AudioLowerVolume 
 
 #Vol Up
-"amixer set Master 10%+"
+"amixer set Master 5%+"
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
