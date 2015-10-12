@@ -10,6 +10,8 @@ client.unfocused        #464b50 #464b50 #464b50 #464b50
 client.focused_inactive #464b50 #464b50 #464b50 #464b50
 client.urgent           #464b50 #464b50 #464b50 #464b50
 
+exec /usr/bin/VBoxClient-all
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
