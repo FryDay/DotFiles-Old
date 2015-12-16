@@ -127,4 +127,4 @@ gaps outer 4
 smart_gaps on
 for_window [class="^.*"] border pixel 1
 
-#exec compton -b
+exec compton -b
