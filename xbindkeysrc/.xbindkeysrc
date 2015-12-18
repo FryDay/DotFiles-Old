@@ -65,8 +65,8 @@
     m:0x0 + c:179
     XF86Tools 
 
-#dmenu
-"dmenu_run"
+#j4-dmenu-desktop
+"j4-dmenu-desktop --dmenu="dmenu -i -fn "Inconsolata-8" -q" --term=termite"
     m:0x0 + c:225
     XF86Search 
 
