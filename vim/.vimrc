@@ -1,7 +1,10 @@
 set nocompatible              " be iMproved, required
 set expandtab
 set tabstop=4
-set nu
+set number
+" set cursorline
+set wildmenu
+set showmatch
 syntax on
 filetype off                  " required
 
