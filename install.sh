@@ -5,3 +5,4 @@ stow vim
 stow config
 stow xbindkeysrc
 stow feh
+stow bash
