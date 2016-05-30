@@ -1,11 +1,13 @@
-set nocompatible              " be iMproved, required
+set nocompatible
 set expandtab
 set tabstop=4
 set nu
 syntax on
-filetype off                  " required
+filetype off
 
 filetype plugin indent on    " required
 
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
