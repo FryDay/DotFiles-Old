@@ -4,39 +4,39 @@ font = Monospace 12
 [colors]
 
 # special
-foreground      = #66ff66
-foreground_bold = #66ff66
-cursor          = #66ff66
+foreground      = #a2a2a2
+foreground_bold = #a2a2a2
+cursor          = #a2a2a2
 background      = rgba(16,16,16,0.94)
 
 # black
-color0  = #1c1c1c
-color8  = #4d4d4d
+color0  = #555555
+color8  = #888888
 
 # red
-color1  = #d81860
-color9  = #f00060
+color1  = #9c3528
+color9  = #d64937
 
 # green
-color2  = #60ff60
-color10 = #70ff70
+color2  = #61bc3b
+color10 = #86df5d
 
 # yellow
-color3  = #f9fd75
-color11 = #f9fd80
+color3  = #f3b43a
+color11 = #fdd75a
 
 # blue
-color4  = #4695c8
-color12 = #5a9dc8
+color4  = #0d68a8
+color12 = #0f75bd
 
 # magenta
-color5  = #a78edb
-color13 = #b29fdb
+color5  = #744560
+color13 = #9e5e83
 
 # cyan
-color6  = #43afce
-color14 = #69b8ce
+color6  = #288e9c
+color14 = #37c3d6
 
 # white
-color7  = #f3ebe2
-color15 = #eeeeee
+color7  = #a2a2a2
+color15 = #f9f9f9
