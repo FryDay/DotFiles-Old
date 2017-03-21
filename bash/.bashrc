@@ -9,9 +9,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export GOPATH=~/go
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$GOPATH/bin:$PATH"
 source /usr/bin/virtualenvwrapper.sh
 
 alias ls='ls --color=auto'
-alias update='pacaur -Syu'
+#alias update='pacaur -Syu'
+alias update='yaourt -Syua'
+alias spotify="/usr/bin/spotify --force-device-scale-factor=1.5"
 PS1='[\u@\h \W]\$ '
