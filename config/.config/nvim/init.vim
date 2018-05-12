@@ -15,6 +15,7 @@ call dein#add('zchee/deoplete-go', {'build': 'make'})
 call dein#add('w0rp/ale')
 call dein#add('qwelyt/TrippingRobot')
 call dein#add('vim-airline/vim-airline')
+call dein#add('vim-scripts/Auto-Pairs')
 " exit dein
 call dein#end()
 " auto-install missing packages on startup
