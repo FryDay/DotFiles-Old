@@ -30,6 +30,9 @@ if has('nvim')
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 endif
 
+nmap <F7> :tabp <cr>
+nmap <F8> :tabn <cr>
+
 " Highlight current line
 " set cursorline
 
@@ -113,14 +116,22 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:go_auto_sameids = 1
+" let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " Enable integration with airline.
-" let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:go_auto_type_info = 1
+
+au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
+
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
 let g:go_addtags_transform = "snakecase"
