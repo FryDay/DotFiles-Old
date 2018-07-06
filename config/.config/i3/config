@@ -246,11 +246,11 @@ bindsym $Mod+Control+Shift+minus gaps outer all minus 5
 
 for_window [class="(?i)(?:qt5ct|pinentry)"] floating enable, focus
 for_window [class="(?i)(?:termite|thunar)"] focus
-for_window [class="(?i)(?:geany|firefox)"] focus
+for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 
 # Assign Applications to specific workspace
 # get class with xprop
-assign [class="(?i)(?:firefox)"] → $WS1
+assign [class="(?i)(?:google-chrome)"] → $WS2
 assign [class="(?i)(?:geany)"] → $WS2
 assign [class="(?i)(?:thunar)"] → $WS3
 
@@ -261,4 +261,6 @@ for_window [window_role="(?i)(?:pop-up|setup)"] floating enable
 # set trayer to be borderless
 for_window [class="(?i)trayer"] border pixel 0
 
-exec xss-lock -- i3lock &
+exec --no-startup-id xss-lock -- i3lock &
+
+exec --no-startup-id i3-msg workspace $WS1
