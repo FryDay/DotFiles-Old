@@ -13,6 +13,15 @@ setopt hist_find_no_dups
 setopt inc_append_history
 setopt share_history
 
+function gitclean
+{
+    git fetch -p
+    for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`;
+    do
+            git branch -D $branch
+    done
+}
+
 # alias
 alias l='ls'
 alias la='ls -A'
@@ -25,7 +34,9 @@ alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
 alias update='trizen -Syyu'
 
-export GOBIN=~/go/bin
+export AWS_REGION=us-west-2
+export GOPATH=~/go
+export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 
 #al-info
