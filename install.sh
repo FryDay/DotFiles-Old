@@ -1,8 +1,5 @@
 #!/bin/bash
 
-stow i3
-stow vim
 stow config
-stow xbindkeysrc
-stow feh
-stow bash
+stow vim
+stow zsh
