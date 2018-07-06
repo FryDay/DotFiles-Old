@@ -51,8 +51,8 @@ set $WS7 "7: "
 set $WS8 "8: "
 
 # monitors
-set $Mon1 HDMI1
-set $Mon2 HDMI2
+set $Mon1 HDMI-0
+set $Mon2 DVI-D-0
 
 #####################################################
 ###############     Autostart      ##################
@@ -64,7 +64,7 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xrdb -load ~/.Xresources
 
 # If you have a numpad you may want to enable this
-# exec_always --no-startup-id numlockx on
+exec_always --no-startup-id numlockx on
 
 # run once
 exec --no-startup-id xfsettingsd
