@@ -37,6 +37,5 @@ alias update='trizen -Syyu'
 export AWS_REGION=us-west-2
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
 
 #al-info

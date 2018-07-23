@@ -24,7 +24,7 @@ client.background       $bg
 for_window [class="^.*"] border pixel 2, title_format "<b> %class >> %title </b>"
 
 # gaps
-gaps inner 8
+gaps inner 4
 gaps outer 4
 smart_gaps on
 
@@ -89,6 +89,8 @@ bindsym $Mod+e exec --no-startup-id geany
 bindsym $Mod+Return exec exo-open --launch TerminalEmulator
 bindsym $Mod+w exec exo-open --launch WebBrowser
 bindsym $Mod+f exec exo-open --launch FileManager
+
+bindsym $Mod+Shift+f fullscreen toggle global
 
 # logout script
 bindsym $Mod+x exec --no-startup-id rofr.sh -l
@@ -244,7 +246,7 @@ bindsym $Mod+Control+Shift+minus gaps outer all minus 5
 ############    application settings   ############
 ###################################################
 
-for_window [class="(?i)(?:qt5ct|pinentry|mpv)"] floating enable, focus
+for_window [class="(?i)(?:qt5ct|pinentry|mpv|zoom|slack)"] floating enable, focus
 for_window [class="(?i)(?:termite|thunar)"] focus
 for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 

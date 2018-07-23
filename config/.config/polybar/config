@@ -19,4 +19,4 @@ monitor = HDMI-0
 
 modules-left   = jgmenu i3 menu
 modules-center = clock
-modules-right  = pkg memory temperature coreuse network volume
+modules-right  = memory coreuse temperature network volume
