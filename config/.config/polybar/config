@@ -19,4 +19,4 @@ monitor =
 
 modules-left   = jgmenu i3 menu
 modules-center = clock
-modules-right  = pkg memory battery temperature coreuse network volume
+modules-right  = memory battery temperature coreuse network volume
