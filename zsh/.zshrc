@@ -32,10 +32,11 @@ alias pac='sudo pacman --color auto'
 alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='trizen -Syyu'
+alias update='yay -Syyu'
 
 export AWS_REGION=us-west-2
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
+export HAXE_STD_PATH=/usr/lib/haxe/std
 
 #al-info
