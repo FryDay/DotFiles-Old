@@ -3,6 +3,15 @@
 # not running interactively then bail
 [[ $- != *i* ]] && return
 
+ZSH=/usr/share/oh-my-zsh
+ZSH_THEME="powerlevel9k/powerlevel9k"
+DISABLE_AUTO_UPDATE="true"
+
+POWERLEVEL9K_MODE="nerdfont-complete"
+
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir newline vcs)
+
 # shell opts
 setopt auto_cd
 setopt bang_hist
@@ -39,4 +48,13 @@ export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export HAXE_STD_PATH=/usr/lib/haxe/std
 
-#al-info
+plugins=(
+  git
+)
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
