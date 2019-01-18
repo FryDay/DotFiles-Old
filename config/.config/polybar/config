@@ -3,8 +3,8 @@
 ;=====================================================
 
 [section/base]
-include-file = /home/fryday/.config/polybar/master.conf
-include-file = /home/fryday/.config/polybar/modules.conf
+include-file = ~/.config/polybar/master.conf
+include-file = ~/.config/polybar/modules.conf
 
 
 ;=====================================================
@@ -15,7 +15,7 @@ include-file = /home/fryday/.config/polybar/modules.conf
 inherit = bar/master
 
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
-monitor =
+monitor = HDMI-0
 
 modules-left   = jgmenu i3 menu
 modules-center = clock
