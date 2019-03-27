@@ -79,7 +79,9 @@ alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/p
 alias update='yay -Syyu'
 
 export AWS_REGION=us-west-2
+export GO111MODULE=on
 export GOPATH=~/go
+export GOCACHE=$GOPATH/.cache
 export GOBIN=$GOPATH/bin
 export HAXE_STD_PATH=/usr/lib/haxe/std
 

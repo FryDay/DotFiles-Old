@@ -33,7 +33,6 @@ font pango:DejaVu Sans Mono 14
 
 # $Mod = Super or Alt?
 set $Mod Mod4
-#set $Mod Mod1
 
 # direction keys
 set $up l
@@ -141,8 +140,8 @@ bindsym $Mod+7 workspace $WS7
 bindsym $Mod+8 workspace $WS8
 bindsym $Mod+9 workspace $WS9
 
-bindsym $Mod+plus workspace next
-bindsym $Mod+minus workspace prev
+# bindsym $Mod+plus workspace next
+# bindsym $Mod+minus workspace prev
 
 # move focused container to workspace
 bindsym $Mod+Shift+1 move container to workspace $WS1; workspace $WS1
@@ -241,8 +240,8 @@ bindsym $Mod+y border 1pixel
 bindsym $Mod+u border none
 
 # change gaps
-#bindsym $Mod+plus        gaps inner current plus  5
-#bindsym $Mod+minus       gaps inner current minus 5
+bindsym $Mod+plus        gaps inner current plus  5
+bindsym $Mod+minus       gaps inner current minus 5
 bindsym $Mod+Shift+plus  gaps outer current plus  5
 bindsym $Mod+Shift+minus gaps outer current minus 5
 bindsym $Mod+Control+plus        gaps inner all plus  5
@@ -254,7 +253,7 @@ bindsym $Mod+Control+Shift+minus gaps outer all minus 5
 ############    application settings   ############
 ###################################################
 
-for_window [class="(?i)(?:qt5ct|pinentry|mpv|zoom|slack|hl)"] floating enable, focus
+for_window [class="(?i)(?:qt5ct|pinentry|mpv|zoom|slack|hl|godot|fceux|speedcrunch|dream)"] floating enable, focus
 for_window [class="(?i)(?:termite|thunar)"] focus
 for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 
@@ -262,7 +261,7 @@ for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 # get class with xprop
 assign [class="(?i)(?:google-chrome)"] → $WS2
 assign [class="(?i)(?:geany)"] → $WS2
-assign [class="(?i)(?:thunar)"] → $WS3
+assign [class="(?i)(?:zoom)"] → $WS1
 
 # focus, floating, & sticky
 for_window [title="(?i)(?:copying|deleting|moving)"] floating enable
