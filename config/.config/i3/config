@@ -184,8 +184,8 @@ bindsym $Mod+Down  focus down
 bindsym $Mod+Up    focus up
 bindsym $Mod+Right focus right
 
-bindsym $Mod+p focus parent
-bindsym $Mod+c focus child
+#bindsym $Mod+p focus parent
+#bindsym $Mod+c focus child
 
 # move focused window
 bindsym $Mod+Shift+$left  move left  10px
@@ -274,8 +274,10 @@ for_window [instance="slack"] floating enable, move scratchpad
 
 # IRC
 exec --no-startup-id termite --name irc -e weechat &
-bindsym $Mod+grave [instance="irc"] scratchpad show, move position center
+bindsym $Mod+c [instance="irc"] scratchpad show, move position center
 for_window [instance="irc"] floating enable, resize set 1280 790, move scratchpad
+
+exec --no-startup-id pulseeffects --gapplication-service &
 
 exec --no-startup-id xss-lock -- i3lock &
 exec --no-startup-id i3-msg workspace $WS1
