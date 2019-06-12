@@ -78,7 +78,7 @@ alias pac='sudo pacman --color auto'
 alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu'
+alias update='yay -Syyu && flatpak update --noninteractive'
 
 export AWS_REGION=us-west-2
 export GO111MODULE=on
