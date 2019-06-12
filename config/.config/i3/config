@@ -51,15 +51,16 @@ set $WS8 "8"
 set $WS9 "9"
 
 # monitors
-set $Mon1 HDMI-0
-set $Mon2 DVI-D-0
+set $Mon1 DP-4
+set $Mon2 DP-2
 
 #####################################################
 ###############     Autostart      ##################
 #####################################################
 
 # run with reload
-exec_always --no-startup-id al-polybar-session
+exec_always --no-startup-id polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xrdb -load ~/.Xresources
 
@@ -68,7 +69,7 @@ exec_always --no-startup-id numlockx on
 
 # run once
 exec --no-startup-id xfsettingsd
-exec --no-startup-id al-compositor --start
+exec --no-startup-id compton -b
 exec --no-startup-id clipit
 
 ###########################################################

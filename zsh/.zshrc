@@ -3,6 +3,8 @@
 # not running interactively then bail
 [[ $- != *i* ]] && return
 
+export TERM="xterm-256color"
+
 ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 DISABLE_AUTO_UPDATE="true"
