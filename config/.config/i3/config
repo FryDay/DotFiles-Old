@@ -24,7 +24,7 @@ client.background       $bg
 for_window [class="^.*"] border pixel 2, title_format "<b> %class >> %title </b>"
 
 # gaps
-gaps inner 4
+gaps inner 8
 gaps outer 4
 smart_gaps on
 
@@ -52,8 +52,8 @@ set $WS8 "8"
 set $WS9 "9"
 
 # monitors
-set $Mon1 HDMI-0
-set $Mon2 DVI-D-0
+set $Mon1 HDMI1
+set $Mon2 HDMI2
 
 #####################################################
 ###############     Autostart      ##################

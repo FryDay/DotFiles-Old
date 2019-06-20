@@ -81,6 +81,7 @@ alias update='yay -Syyu'
 export AWS_REGION=us-west-2
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
 export HAXE_STD_PATH=/usr/lib/haxe/std
 
 plugins=(
