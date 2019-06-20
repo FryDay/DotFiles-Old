@@ -3,6 +3,8 @@
 # not running interactively then bail
 [[ $- != *i* ]] && return
 
+export TERM="xterm-256color"
+
 ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 DISABLE_AUTO_UPDATE="true"
@@ -76,10 +78,12 @@ alias pac='sudo pacman --color auto'
 alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu'
+alias update='yay -Syyu && flatpak update --noninteractive'
 
 export AWS_REGION=us-west-2
+export GO111MODULE=on
 export GOPATH=~/go
+export GOCACHE=$GOPATH/.cache
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 export HAXE_STD_PATH=/usr/lib/haxe/std

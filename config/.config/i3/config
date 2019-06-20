@@ -33,7 +33,6 @@ font pango:DejaVu Sans Mono 14
 
 # $Mod = Super or Alt?
 set $Mod Mod4
-#set $Mod Mod1
 
 # direction keys
 set $up l
@@ -60,7 +59,8 @@ set $Mon2 HDMI2
 #####################################################
 
 # run with reload
-exec_always --no-startup-id al-polybar-session
+exec_always --no-startup-id polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xrdb -load ~/.Xresources
 
@@ -69,7 +69,7 @@ exec_always --no-startup-id numlockx on
 
 # run once
 exec --no-startup-id xfsettingsd
-exec --no-startup-id al-compositor --start
+exec --no-startup-id compton -b
 exec --no-startup-id clipit
 
 ###########################################################
@@ -141,8 +141,8 @@ bindsym $Mod+7 workspace $WS7
 bindsym $Mod+8 workspace $WS8
 bindsym $Mod+9 workspace $WS9
 
-bindsym $Mod+plus workspace next
-bindsym $Mod+minus workspace prev
+# bindsym $Mod+plus workspace next
+# bindsym $Mod+minus workspace prev
 
 # move focused container to workspace
 bindsym $Mod+Shift+1 move container to workspace $WS1; workspace $WS1
@@ -173,9 +173,6 @@ bindsym $Mod+Shift+c reload
 bindsym $Mod+Shift+space floating toggle
 floating_modifier  Mod1
 
-bindsym $Mod+Shift+z move scratchpad
-bindsym $Mod+z scratchpad show
-
 # change focus
 bindsym $Mod+$left  focus left
 bindsym $Mod+$down  focus down
@@ -188,8 +185,8 @@ bindsym $Mod+Down  focus down
 bindsym $Mod+Up    focus up
 bindsym $Mod+Right focus right
 
-bindsym $Mod+p focus parent
-bindsym $Mod+c focus child
+#bindsym $Mod+p focus parent
+#bindsym $Mod+c focus child
 
 # move focused window
 bindsym $Mod+Shift+$left  move left  10px
@@ -241,8 +238,8 @@ bindsym $Mod+y border 1pixel
 bindsym $Mod+u border none
 
 # change gaps
-#bindsym $Mod+plus        gaps inner current plus  5
-#bindsym $Mod+minus       gaps inner current minus 5
+bindsym $Mod+plus        gaps inner current plus  5
+bindsym $Mod+minus       gaps inner current minus 5
 bindsym $Mod+Shift+plus  gaps outer current plus  5
 bindsym $Mod+Shift+minus gaps outer current minus 5
 bindsym $Mod+Control+plus        gaps inner all plus  5
@@ -254,7 +251,7 @@ bindsym $Mod+Control+Shift+minus gaps outer all minus 5
 ############    application settings   ############
 ###################################################
 
-for_window [class="(?i)(?:qt5ct|pinentry|mpv|zoom|slack|hl)"] floating enable, focus
+for_window [class="(?i)(?:qt5ct|pinentry|mpv|zoom|slack|hl|godot|fceux|speedcrunch|dream)"] floating enable, focus
 for_window [class="(?i)(?:termite|thunar)"] focus
 for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 
@@ -262,7 +259,7 @@ for_window [class="(?i)(?:geany|firefox|google-chrome)"] focus
 # get class with xprop
 assign [class="(?i)(?:google-chrome)"] → $WS2
 assign [class="(?i)(?:geany)"] → $WS2
-assign [class="(?i)(?:thunar)"] → $WS3
+assign [class="(?i)(?:zoom)"] → $WS1
 
 # focus, floating, & sticky
 for_window [title="(?i)(?:copying|deleting|moving)"] floating enable
@@ -271,6 +268,31 @@ for_window [window_role="(?i)(?:pop-up|setup)"] floating enable
 # set trayer to be borderless
 for_window [class="(?i)trayer"] border pixel 0
 
-exec --no-startup-id xss-lock -- i3lock &
+# Slack
+exec --no-startup-id slack --name slack &
+bindsym $Mod+z [instance="slack"] scratchpad show, move position center
+for_window [instance="slack"] floating enable, move scratchpad
 
+# IRC
+exec --no-startup-id termite --name irc -e weechat &
+bindsym $Mod+c [instance="irc"] scratchpad show, move position center
+for_window [instance="irc"] floating enable, resize set 1280 790, move scratchpad
+
+# Steam
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+
+exec --no-startup-id pulseeffects --gapplication-service &
+
+exec --no-startup-id xss-lock -- i3lock &
 exec --no-startup-id i3-msg workspace $WS1
+
