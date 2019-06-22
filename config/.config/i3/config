@@ -71,6 +71,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id xfsettingsd
 exec --no-startup-id compton -b
 exec --no-startup-id clipit
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 ###########################################################
 #############         Bindings           ##################
