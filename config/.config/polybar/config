@@ -19,4 +19,4 @@ monitor = ${env:MONITOR:}
 
 modules-left   = jgmenu i3 menu
 modules-center = clock
-modules-right  = memory coreuse temperature network volume
+modules-right  = spotify memory coreuse temperature network volume

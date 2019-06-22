@@ -78,7 +78,7 @@ alias pac='sudo pacman --color auto'
 alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu && flatpak update --noninteractive'
+alias update='yay -Syyu --noconfirm && flatpak update --noninteractive'
 
 export AWS_REGION=us-west-2
 export GO111MODULE=on
@@ -86,6 +86,7 @@ export GOPATH=~/go
 export GOCACHE=$GOPATH/.cache
 export GOBIN=$GOPATH/bin
 export HAXE_STD_PATH=/usr/lib/haxe/std
+export VAULT_ADDR=https://172.16.12.23:12006/
 
 plugins=(
   git
