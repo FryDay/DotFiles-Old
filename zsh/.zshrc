@@ -64,7 +64,7 @@ function gitclean
     git fetch -p
     for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`;
     do
-            git branch -D $branch
+        git branch -D $branch
     done
 }
 
@@ -78,7 +78,7 @@ alias pac='sudo pacman --color auto'
 alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu && flatpak update --noninteractive'
+alias update='yay -Syyu --noconfirm && flatpak update --noninteractive'
 
 export AWS_REGION=us-west-2
 export GO111MODULE=on
@@ -89,13 +89,13 @@ export PATH=$GOBIN:$PATH
 export HAXE_STD_PATH=/usr/lib/haxe/std
 
 plugins=(
-  git
-  sudo
+    git
+    sudo
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+    mkdir $ZSH_CACHE_DIR
 fi
 
 source $ZSH/oh-my-zsh.sh

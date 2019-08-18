@@ -71,6 +71,8 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id xfsettingsd
 exec --no-startup-id compton -b
 exec --no-startup-id clipit
+exec --no-startup-id flameshot
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 ###########################################################
 #############         Bindings           ##################
@@ -98,9 +100,7 @@ bindsym $Mod+Shift+f fullscreen toggle global
 bindsym $Mod+x exec --no-startup-id rofr.sh -l
 
 # Screenshot
-bindsym Print exec --no-startup-id "scrot '%S.png' \
-            -e 'mv $f $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png \
-            ; gpicview $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png'"
+bindsym Print exec "flameshot gui"
 
 # audio
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -124,11 +124,11 @@ workspace $WS1 output $Mon1
 workspace $WS2 output $Mon1
 workspace $WS3 output $Mon1
 workspace $WS4 output $Mon1
-workspace $WS5 output $Mon2
-workspace $WS6 output $Mon2
-workspace $WS7 output $Mon2
-workspace $WS8 output $Mon2
-workspace $WS9 output $Mon2
+workspace $WS5 output $Mon1
+workspace $WS6 output $Mon1
+workspace $WS7 output $Mon1
+workspace $WS8 output $Mon1
+workspace $WS9 output $Mon1
 
 # switch to workspace
 bindsym $Mod+1 workspace $WS1
