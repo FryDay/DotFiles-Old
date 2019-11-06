@@ -73,20 +73,19 @@ alias l='ls'
 alias la='ls -A'
 alias ll='ls -lA'
 alias ls='ls --color=auto'
-alias upd='sudo pacman -Syyu'
-alias pac='sudo pacman --color auto'
-alias merge='xrdb -merge ~/.Xresources'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu --noconfirm && flatpak update --noninteractive'
+alias update='yay -Syyu --noconfirm'
+alias vim='nvim'
+alias sudo='sudo '
 
-export AWS_REGION=us-west-2
+#export AWS_REGION=us-west-2
 export GO111MODULE=on
-export GOPATH=~/go
-export GOCACHE=$GOPATH/.cache
-export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
-export HAXE_STD_PATH=/usr/lib/haxe/std
+#export GOPATH=~/go
+#export GOCACHE=$GOPATH/.cache
+#export GOBIN=$GOPATH/bin
+#export PATH=$GOBIN:$PATH
+#export HAXE_STD_PATH=/usr/lib/haxe/std
 
 plugins=(
     git

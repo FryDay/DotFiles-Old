@@ -18,43 +18,44 @@ cursor_shape = block
 browser = exo-open
 filter_unmatched_urls = true
 
+
 [colors]
 
 # special
-foreground      = #f8f8f2
-foreground_bold = #f8f8f2
-cursor          = #f8f8f2
-background      = rgba(40, 42, 54, 0.9)
+foreground      = #666699
+foreground_bold = #666699
+cursor          = #666699
+background      = rgba(0, 0, 0, 0.7)
 
 # black
-color0  = #000000
-color8  = #4d4d4d
+color0  = #333366
+color8  = #333399
 
 # red
-color1  = #ff5555
-color9  = #ff6e67
+color1  = #6666cc
+color9  = #9999ff
 
 # green
-color2  = #50fa7b
-color10 = #5af78e
+color2  = #0099cc
+color10 = #00ccff
 
 # yellow
-color3  = #f1fa8c
-color11 = #f4f99d
+color3  = #3366cc
+color11 = #6699ff
 
 # blue
-color4  = #bd93f9
-color12 = #caa9fa
+color4  = #006699
+color12 = #0099cc
 
 # magenta
-color5  = #ff79c6
-color13 = #ff92d0
+color5  = #0066ff
+color13 = #0099ff
 
 # cyan
-color6  = #8be9fd
-color14 = #9aedfe
+color6  = #669999
+color14 = #66cccc
 
 # white
-color7  = #bfbfbf
-color15 = #e6e6e6
+color7  = #99cccc
+color15 = #ccffff
 
