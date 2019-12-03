@@ -22,11 +22,13 @@ background-alt = #333
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #6a00bf
+primary-dark = #470081
+primary-light = #8c00ff
 secondary = #e60053
 alert = #bd2c40
 
-[bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/leftBar]
+monitor = ${env:MONITOR:DP-2}
 width = 100%
 height = 35
 radius = 6.0
@@ -53,18 +55,54 @@ font-2 = siji:pixelsize=14;1
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery temperature powermenu
+; modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery temperature powermenu
 
-tray-position = right
-tray-padding = 2
-;tray-background = #0063ff
+;tray-position = right
+;tray-padding = 2
 
 wm-restack = bspwm
 
-;override-redirect = true
+cursor-click = pointer
+cursor-scroll = ns-resize
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+[bar/rightBar]
+monitor = ${env:MONITOR:DP-4}
+width = 100%
+height = 35
+radius = 6.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "DejaVu Sans Mono:size=14:antialias=false;2"
+font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
+font-2 = siji:pixelsize=14;1
+font-3 = "Font Awesome 5 Brands:pixelsize=11;1"
+font-4 = "MaterialIcons:size=12:antialias=false;2"
+font-5 = "icomoon:size=12:antialias=false;2"
+font-6 = "Ubuntu Nerd Font:size=12:antialias=false;2"
+
+modules-left = bspwm
+modules-center = date
+modules-right = filesystem xbacklight memory coreuse wlan eth battery temperature pulseaudio powermenu
+
+;tray-position = right
+;tray-padding = 2
+
+wm-restack = bspwm
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -95,69 +133,32 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#6a00bf}%mountpoint%%{F-} %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces=true
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
 
 [module/mpd]
 type = internal/mpd
@@ -202,13 +203,31 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
 
+[module/coreuse]
+type = internal/cpu
+interval = 3
+format-padding = 1
+format = <ramp-coreload><label>
+label = %{A1:termite --exec=htop & disown:} %percentage%% %{A}
+ramp-coreload-0 = ▂
+ramp-coreload-1 = ▃
+ramp-coreload-2 = ▄
+ramp-coreload-3 = ▅
+ramp-coreload-4 = ▆
+ramp-coreload-5 = ▇
+ramp-coreload-0-foreground = ${colors.primary-dark}
+ramp-coreload-1-foreground = ${colors.primary-dark}
+ramp-coreload-2-foreground = ${colors.primary}
+ramp-coreload-3-foreground = ${colors.primary}
+ramp-coreload-4-foreground = ${colors.primary-light}
+ramp-coreload-5-foreground = ${colors.primary-light}
+
 [module/memory]
 type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+interval = 3
+format = <label>
+label-padding = 1
+label = %{A1:termite --exec=htop & disown:}%{F#8c00ff} %{F-}%percentage_used%%%{A}
 
 [module/wlan]
 type = internal/network
@@ -260,28 +279,27 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <bar-volume> <label-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${colors.primary-dark}
+bar-volume-foreground-1 = ${colors.primary-dark}
+bar-volume-foreground-2 = ${colors.primary}
+bar-volume-foreground-3 = ${colors.primary}
+bar-volume-foreground-4 = ${colors.primary}
+bar-volume-foreground-5 = ${colors.primary-light}
+bar-volume-foreground-6 = ${colors.primary-light}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -354,22 +372,25 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+interval = 3
+;thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+warn-temperature = 80
+format = <ramp><label>
+format-padding = 1
+label = %{A1:termite --exec='watch sensors' & disown:} %temperature-c%%{A}
+ramp-0 = ""
+ramp-1 = ""
+ramp-2 = ""
+ramp-3 = ""
+ramp-0-foreground = ${colors.primary-light}
+ramp-1-foreground = ${colors.primary-light}
+ramp-2-foreground = ${colors.primary}
+ramp-3-foreground = ${colors.primary-dark}
+format-warn = <label-warn>
+label-warn = " %temperature-c%"
+label-warn-padding = 1
+label-warn-foreground = ${colors.primary-dark}
 
 [module/powermenu]
 type = custom/menu
@@ -378,10 +399,10 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
+label-open =
+label-open-foreground = ${colors.primary-light}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.primary-light}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -389,6 +410,8 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
+menu-0-2 = sleep
+menu-0-2-exec = menu-open-3
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
@@ -399,6 +422,11 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+menu-3-0 = sleep
+menu-3-0-exec = sudo systemctl suspend
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
