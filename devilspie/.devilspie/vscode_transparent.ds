@@ -1,4 +1,4 @@
 ( if
 ( contains ( window_class ) "Code" )
 ( begin
-( spawn_async (str "xprop -id " (window_xid) " -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xA6666665") )))
+( spawn_async (str "xprop -id " (window_xid) " -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xD9999998") )))

@@ -1,12 +1,21 @@
 #! /bin/sh
 
+export BSPWM_SCRIPTS_DIR="$HOME/.config/scripts"
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 sxhkd &
 nitrogen --restore &
-compton -b
+numlockx &
+picom -b
 $HOME/.config/polybar/launch.sh
 devilspie -a &
+pulseeffects --gapplication-service &
+xrdb -load ~/.Xresources &
+clipit &
+flameshot &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width        2
 bspc config window_gap          8
