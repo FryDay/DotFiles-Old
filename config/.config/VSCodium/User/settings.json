@@ -1,0 +1,133 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "go.testOnSave": true,
+    "go.lintOnSave": "package",
+    "go.coverOnSave": true,
+    "go.coverageDecorator": {
+        "type": "highlight",
+        "coveredHighlightColor": "rgba(64,128,64,0.25)",
+        "uncoveredHighlightColor": "rgba(128,64,64,0.25)",
+        "coveredGutterStyle": "blockgreen",
+        "uncoveredGutterStyle": "slashred"
+    },
+    "sync.gist": "04e2c86e76197952a37bf176a92eed41",
+    "sync.autoDownload": true,
+    "sync.autoUpload": false,
+    "sync.forceDownload": false,
+    "sync.quietSync": false,
+    "workbench.colorTheme": "Dracula",
+    "settings.cycle": [
+        {
+            "id": "minimap", // must be unique
+            "overrideWorkspaceSettings": false,
+            "values": [
+                {
+                    "editor.minimap.enabled": false
+                },
+                {
+                    "editor.minimap.enabled": true
+                }
+            ]
+        },
+        {
+            "id": "formatOnSave",
+            "overrideWorkspaceSettings": false,
+            "values": [
+                {
+                    "editor.formatOnSave": true,
+                },
+                {
+                    "editor.formatOnSave": false,
+                }
+            ]
+        }
+    ],
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.ino": "cpp"
+    },
+    "window.zoomLevel": 0,
+    "window.titleBarStyle": "custom",
+    "sync.askGistName": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "extensions.ignoreRecommendations": false,
+    "go.autocompleteUnimportedPackages": true,
+    "go.coverageOptions": "showUncoveredCodeOnly",
+    "terminal.external.linuxExec": "termite",
+    "terminal.integrated.copyOnSelection": true,
+    "breadcrumbs.enabled": true,
+    "editor.renderWhitespace": "none",
+    "workbench.iconTheme": "vscode-icons",
+    "telemetry.enableCrashReporter": false,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    // "vetur.experimental.templateInterpolationService": true,
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "macros": {
+        "saveAndExitVimInsertMode": [
+            "workbench.action.files.save",
+            "extension.vim_escape"
+        ]
+    },
+    "editor.fontSize": 16
+}

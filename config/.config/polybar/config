@@ -205,7 +205,7 @@ label = %percentage:2%%
 
 [module/coreuse]
 type = internal/cpu
-interval = 3
+interval = 2
 format-padding = 1
 format = <ramp-coreload><label>
 label = %{A1:termite --exec=htop & disown:} %percentage%% %{A}
