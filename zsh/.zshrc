@@ -98,3 +98,8 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+export GPG_TTY=/dev/pts/1
+gpg-connect-agent updatestartuptty /bye > /dev/null
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh

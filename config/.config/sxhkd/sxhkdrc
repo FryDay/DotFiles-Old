@@ -57,6 +57,10 @@ super + ctrl + {m,x,y,z}
 # focus/swap
 #
 
+# rotate desktop
+super + r
+	bspc node @/ -R 90
+
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
