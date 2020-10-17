@@ -6,7 +6,7 @@
 export TERM="xterm-256color"
 
 ZSH=/usr/share/oh-my-zsh
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 DISABLE_AUTO_UPDATE="true"
 
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -103,3 +103,6 @@ export GPG_TTY=/dev/pts/1
 gpg-connect-agent updatestartuptty /bye > /dev/null
 unset SSH_AGENT_PID
 export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
+
+# Created by `userpath` on 2020-10-11 05:24:05
+export PATH="$PATH:/home/jordan/.local/bin"
