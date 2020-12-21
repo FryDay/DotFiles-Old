@@ -9,7 +9,6 @@ numlockx &
 picom -b
 $HOME/.config/polybar/launch.sh
 devilspie -a &
-pulseeffects --gapplication-service &
 xrdb -load ~/.Xresources &
 clipit &
 flameshot &
