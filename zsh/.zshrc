@@ -1,53 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Zshrc
 
 # not running interactively then bail
 [[ $- != *i* ]] && return
-
-export TERM="xterm-256color"
-
-ZSH=/usr/share/oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-DISABLE_AUTO_UPDATE="true"
-
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
-
-POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
-POWERLEVEL9K_ALWAYS_SHOW_USER=false
-
-POWERLEVEL9K_CONTEXT_TEMPLATE="\uF109 %m"
-
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\ue0bc"
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-POWERLEVEL9K_STATUS_VERBOSE=true
-POWERLEVEL9K_STATUS_CROSS=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─\uf101 "
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir_writable dir vcs)
-
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="magenta"
-
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
-
-POWERLEVEL9K_TIME_FORMAT="%D{%T \uF017}" #  15:29:33
-POWERLEVEL9K_EXECUTION_TIME_ICON="\u23F1"
-POWERLEVEL9K_USER_ICON="\uF415"
-POWERLEVEL9K_ROOT_ICON=$'\uF198'
-POWERLEVEL9K_SSH_ICON="\uF489"
-POWERLEVEL9K_HOST_ICON="\uF109"
-POWERLEVEL9K_HOME_ICON=""
-
-POWERLEVEL9K_DISABLE_RPROMPT=true
 
 # shell opts
 setopt auto_cd
@@ -79,13 +40,7 @@ alias update='yay -Syyu --noconfirm'
 alias vim='nvim'
 alias sudo='sudo '
 
-#export AWS_REGION=us-west-2
 export GO111MODULE=on
-#export GOPATH=~/go
-#export GOCACHE=$GOPATH/.cache
-#export GOBIN=$GOPATH/bin
-#export PATH=$GOBIN:$PATH
-#export HAXE_STD_PATH=/usr/lib/haxe/std
 
 plugins=(
     git
@@ -97,8 +52,6 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
     mkdir $ZSH_CACHE_DIR
 fi
 
-source $ZSH/oh-my-zsh.sh
-
 export GPG_TTY=/dev/pts/1
 gpg-connect-agent updatestartuptty /bye > /dev/null
 unset SSH_AGENT_PID
@@ -106,3 +59,46 @@ export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
 
 # Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
