@@ -11,6 +11,7 @@ $HOME/.config/polybar/launch.sh
 xrdb -load ~/.Xresources &
 clipit &
 flameshot &
+dunst &
 VBoxClient-all &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 

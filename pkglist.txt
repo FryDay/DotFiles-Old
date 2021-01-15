@@ -5,6 +5,7 @@ binutils
 bison
 bspwm
 dhcpcd
+dunst
 fakeroot
 file
 findutils
@@ -33,6 +34,7 @@ nitrogen
 nmap
 nnn
 numlockx
+openssh
 pacman
 patch
 picom

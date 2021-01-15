@@ -9,6 +9,7 @@ fi
 
 # not running interactively then bail
 [[ $- != *i* ]] && return
+ZSH=/usr/share/oh-my-zsh
 
 # shell opts
 setopt auto_cd
@@ -47,11 +48,6 @@ plugins=(
     sudo
 )
 
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-    mkdir $ZSH_CACHE_DIR
-fi
-
 export GPG_TTY=/dev/pts/1
 gpg-connect-agent updatestartuptty /bye > /dev/null
 unset SSH_AGENT_PID
@@ -59,10 +55,6 @@ export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
 
 # Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 typeset -g -A key
 
@@ -102,3 +94,12 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+    mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
