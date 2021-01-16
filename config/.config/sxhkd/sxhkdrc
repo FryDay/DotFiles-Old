@@ -151,3 +151,14 @@ XF86AudioNext
 XF86AudioPrev
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+#
+# screen
+#
+
+# close screen
+super + shift + m
+	sleep 0.5; xset dpms force standby
+
+# lock screen
+super + shift + x
+	betterlockscreen -l pixel -t "Locked" 
