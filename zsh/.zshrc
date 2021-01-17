@@ -1,53 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Zshrc
 
 # not running interactively then bail
 [[ $- != *i* ]] && return
-
-export TERM="xterm-256color"
-
 ZSH=/usr/share/oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-DISABLE_AUTO_UPDATE="true"
-
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
-
-POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
-POWERLEVEL9K_ALWAYS_SHOW_USER=false
-
-POWERLEVEL9K_CONTEXT_TEMPLATE="\uF109 %m"
-
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\ue0bc"
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-POWERLEVEL9K_STATUS_VERBOSE=true
-POWERLEVEL9K_STATUS_CROSS=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─\uf101 "
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir_writable dir vcs)
-
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="magenta"
-
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
-
-POWERLEVEL9K_TIME_FORMAT="%D{%T \uF017}" #  15:29:33
-POWERLEVEL9K_EXECUTION_TIME_ICON="\u23F1"
-POWERLEVEL9K_USER_ICON="\uF415"
-POWERLEVEL9K_ROOT_ICON=$'\uF198'
-POWERLEVEL9K_SSH_ICON="\uF489"
-POWERLEVEL9K_HOST_ICON="\uF109"
-POWERLEVEL9K_HOME_ICON=""
-
-POWERLEVEL9K_DISABLE_RPROMPT=true
 
 # shell opts
 setopt auto_cd
@@ -79,25 +41,14 @@ alias update='yay -Syyu --noconfirm'
 alias vim='nvim'
 alias sudo='sudo '
 
-#export AWS_REGION=us-west-2
 export GO111MODULE=on
-#export GOPATH=~/go
-#export GOCACHE=$GOPATH/.cache
-#export GOBIN=$GOPATH/bin
-#export PATH=$GOBIN:$PATH
-#export HAXE_STD_PATH=/usr/lib/haxe/std
+EDITOR=nvim
+VISUAL=~/.config/nnn/ewrap
 
 plugins=(
-    git
-    sudo
+  git
+  sudo
 )
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-    mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
 
 export GPG_TTY=/dev/pts/1
 gpg-connect-agent updatestartuptty /bye > /dev/null
@@ -106,3 +57,16 @@ export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
 
 # Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+if [ `tput colors` != "256" ]; then
+  ZSH_THEME="robbyrussell"
+else
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
