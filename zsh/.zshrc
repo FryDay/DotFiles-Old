@@ -50,10 +50,9 @@ plugins=(
   sudo
 )
 
-export GPG_TTY=/dev/pts/1
-gpg-connect-agent updatestartuptty /bye > /dev/null
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 # Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
