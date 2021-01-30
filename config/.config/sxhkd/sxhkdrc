@@ -17,6 +17,12 @@ super + ctrl + f
 super + Escape
 	pkill -USR1 -x sxhkd
 
+Henkan_Mode
+	sudo chvt 1
+
+Muhenkan
+	sudo chvt 2
+
 #
 # bspwm hotkeys
 #
