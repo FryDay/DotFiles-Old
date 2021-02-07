@@ -7,3 +7,5 @@ google-chrome-stable --profile-directory=Default --app-id=hjaljckdchhjkhikmngila
 sleep 2
 
 google-chrome-stable &
+
+keepassxc &

@@ -24,16 +24,12 @@ bspc config window_gap          8
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-bspc config ignore_ewmh_focus true
+bspc config ignore_ewmh_focus    true
 
 bspc rule -a Code:code -o desktop='^3'
-#code &
-
 bspc rule -a Google-chrome:crx_hjaljckdchhjkhikmngilafdecmnjifi -o desktop='^6'
-#google-chrome-stable --profile-directory=Default --app-id=hjaljckdchhjkhikmngilafdecmnjifi &
-
 bspc rule -a Google-chrome:google-chrome -o desktop='^6' split_ratio=0.18
-#google-chrome-stable &
+bspc rule -a KeePassXC:keepassxc -o desktop='^10'
 
 $BSPWM_SCRIPTS_DIR/autostart.sh &
 
