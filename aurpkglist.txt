@@ -1,6 +1,7 @@
 nerd-fonts-complete
 oh-my-zsh-git
 polybar
+systemd-boot-pacman-hook
 ttf-meslo-nerd-font-powerlevel10k
 visual-studio-code-bin
 yay

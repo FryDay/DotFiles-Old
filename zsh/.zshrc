@@ -36,7 +36,7 @@ alias la='ls -A'
 alias ll='ls -lA'
 alias ls='ls --color=auto'
 alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
+alias mirrors='sudo reflector --country "United States" --latest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
 alias update='yay -Syyu --noconfirm'
 alias vim='nvim'
 alias sudo='sudo '
@@ -50,10 +50,9 @@ plugins=(
   sudo
 )
 
-export GPG_TTY=/dev/pts/1
-gpg-connect-agent updatestartuptty /bye > /dev/null
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=/run/user/1001/gnupg/S.gpg-agent.ssh
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 # Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
