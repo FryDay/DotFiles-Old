@@ -8,7 +8,6 @@ nitrogen --restore &
 numlockx &
 picom -b
 $HOME/.config/polybar/launch.sh
-devilspie -a &
 xrdb -load ~/.Xresources &
 clipit &
 flameshot &
@@ -26,9 +25,16 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus    true
 
+bspc node @'^6':/ -i
+bspc node @'^6':/ -o 0.18 -p east -i
+bspc node @'^6':/2 -o 0.65 -p south -i
+bspc node @'^6':/2/2 -p east -i
+
 bspc rule -a Code:code -o desktop='^3'
-bspc rule -a Google-chrome:crx_hjaljckdchhjkhikmngilafdecmnjifi -o desktop='^6'
-bspc rule -a Google-chrome:google-chrome -o desktop='^6' split_ratio=0.18
+bspc rule -a Google-chrome:crx_hjaljckdchhjkhikmngilafdecmnjifi -o node=@'^6':/1
+bspc rule -a Google-chrome:google-chrome -o node=@'^6':/2/1
+bspc rule -a Termite:go-do -o node=@'^6':/2/2/1
+bspc rule -a "Gmail Desktop":"gmail desktop" -o node=@'^6':/2/2/2
 bspc rule -a KeePassXC:keepassxc -o desktop='^10'
 
 $BSPWM_SCRIPTS_DIR/autostart.sh &

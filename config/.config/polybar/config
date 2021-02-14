@@ -21,9 +21,9 @@ background = #1f1f1f
 background-alt = #333
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #6a00bf
-primary-dark = #470081
-primary-light = #8c00ff
+primary = #0071BC
+primary-dark = #004370
+primary-light = #4c9bd0
 secondary = #e60053
 alert = #bd2c40
 
@@ -133,7 +133,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#6a00bf}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F#0071BC}%mountpoint%%{F-} %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -227,7 +227,7 @@ type = internal/memory
 interval = 3
 format = <label>
 label-padding = 1
-label = %{A1:termite --exec=htop & disown:}%{F#8c00ff} %{F-}%percentage_used%%%{A}
+label = %{A1:termite --exec=htop & disown:}%{F#0071BC} %{F-}%percentage_used%%%{A}
 
 [module/wlan]
 type = internal/network

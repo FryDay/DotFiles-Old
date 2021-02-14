@@ -142,11 +142,11 @@ super + {Left,Down,Up,Right}
 # media
 # 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    pactl set-sink-mute alsa_output.usb-Focusrite_Scarlett_2i2_USB_Y8ZN5AG048E72A-00.analog-stereo toggle
 XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +5%
+    pactl set-sink-volume alsa_output.usb-Focusrite_Scarlett_2i2_USB_Y8ZN5AG048E72A-00.analog-stereo +5%
 XF86AudioLowerVolume
-    pactl set-sink-volume 0 -5%
+    pactl set-sink-volume alsa_output.usb-Focusrite_Scarlett_2i2_USB_Y8ZN5AG048E72A-00.analog-stereo -5%
 
 XF86AudioPlay
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause

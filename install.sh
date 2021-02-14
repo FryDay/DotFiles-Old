@@ -2,4 +2,3 @@
 
 stow config
 stow zsh
-stow devilspie
