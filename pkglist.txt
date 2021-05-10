@@ -1,4 +1,5 @@
 acpi_call
+alacritty
 autoconf
 automake
 base
@@ -49,7 +50,6 @@ sed
 stow
 sudo
 sxhkd
-termite
 texinfo
 tlp
 ttf-dejavu
