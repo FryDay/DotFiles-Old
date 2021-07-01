@@ -11,6 +11,7 @@ $HOME/.config/polybar/launch.sh
 xrdb -load ~/.Xresources &
 clipit &
 flameshot &
+dunst &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 $BSPWM_SCRIPTS_DIR/enforce_monitor_position DP-4 '^1' &
@@ -26,16 +27,13 @@ bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus    true
 
 bspc node @'^6':/ -i
-bspc node @'^6':/ -o 0.18 -p east -i
-bspc node @'^6':/2 -o 0.65 -p south -i
-bspc node @'^6':/2/2 -p east -i
+bspc node @'^6':/ -o 0.65 -p south -i
+bspc node @'^6':/2 -o 0.50 -p east -i
 
 bspc rule -a Code:code -o desktop='^3'
-bspc rule -a Google-chrome:crx_hjaljckdchhjkhikmngilafdecmnjifi -o node=@'^6':/1
-bspc rule -a Google-chrome:google-chrome -o node=@'^6':/2/1
-bspc rule -a Termite:go-do -o node=@'^6':/2/2/1
-bspc rule -a "Gmail Desktop":"gmail desktop" -o node=@'^6':/2/2/2
-bspc rule -a KeePassXC:keepassxc -o desktop='^10'
+bspc rule -a Google-chrome:google-chrome -o node=@'^6':/1
+bspc rule -a "discord":"discord" -o node=@'^6':/2/1
+bspc rule -a "Slack":"slack" -o node=@'^6':/2/2
 
 $BSPWM_SCRIPTS_DIR/autostart.sh &
 
