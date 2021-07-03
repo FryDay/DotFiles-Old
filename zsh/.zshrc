@@ -30,17 +30,6 @@ function gitclean
     done
 }
 
-# alias
-alias l='ls'
-alias la='ls -A'
-alias ll='ls -lA'
-alias ls='ls --color=auto'
-alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
-alias update='yay -Syyu --noconfirm'
-alias vim='nvim'
-alias sudo='sudo '
-
 export GO111MODULE=on
 EDITOR=nvim
 VISUAL=~/.config/nnn/ewrap
@@ -54,7 +43,6 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
-# Created by `userpath` on 2020-10-11 05:24:05
 export PATH="$PATH:/home/jordan/.local/bin"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -69,3 +57,23 @@ else
   source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
+
+# export PATH=/home/mh/.pyenv/versions/3.7.2/bin:$PATH
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
+export PATH=/home/mh/.ebcli-virtual-env/executables:$PATH
+
+# alias
+unalias l
+unalias la
+unalias ll
+unalias ls
+unalias lsa
+
+alias ll='exa -l'
+alias ls='exa'
+alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
+alias update='paru -Syyu --noconfirm'
+alias vim='nvim'
+alias sudo='sudo '
