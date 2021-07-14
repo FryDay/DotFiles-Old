@@ -1,7 +1,7 @@
 nerd-fonts-complete
 oh-my-zsh-git
+paru
 polybar
 ttf-meslo-nerd-font-powerlevel10k
 visual-studio-code-bin
-yay
 zsh-theme-powerlevel10k-git
