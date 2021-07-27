@@ -208,7 +208,7 @@ type = internal/cpu
 interval = 2
 format-padding = 1
 format = <ramp-coreload><label>
-label = %{A1:termite --exec=htop & disown:} %percentage%% %{A}
+label = %{A1:$TERM -e=htop & disown:} %percentage%% %{A}
 ramp-coreload-0 = ▂
 ramp-coreload-1 = ▃
 ramp-coreload-2 = ▄
@@ -227,7 +227,7 @@ type = internal/memory
 interval = 3
 format = <label>
 label-padding = 1
-label = %{A1:termite --exec=htop & disown:}%{F#0071BC} %{F-}%percentage_used%%%{A}
+label = %{A1:$TERM -e=htop & disown:}%{F#0071BC} %{F-}%percentage_used%%%{A}
 
 [module/wlan]
 type = internal/network
@@ -378,7 +378,7 @@ hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 warn-temperature = 80
 format = <ramp><label>
 format-padding = 1
-label = %{A1:termite --exec='watch sensors' & disown:} %temperature-c%%{A}
+label = %{A1:$TERM -e='watch sensors' & disown:} %temperature-c%%{A}
 ramp-0 = ""
 ramp-1 = ""
 ramp-2 = ""
@@ -424,7 +424,7 @@ menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
 menu-3-0 = sleep
-menu-3-0-exec = sudo systemctl suspend
+menu-3-0-exec = betterlockscreen -s dim 
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
 

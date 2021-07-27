@@ -43,8 +43,6 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
-export PATH="$PATH:/home/jordan/.local/bin"
-
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
@@ -62,6 +60,10 @@ fi
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 export PATH=/home/mh/.ebcli-virtual-env/executables:$PATH
+export PATH="$PATH:$HOME/.local/bin"
+# export PATH="$PATH:$HOME/flutter/bin"
+
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 # alias
 unalias l

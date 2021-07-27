@@ -166,8 +166,8 @@ XF86AudioPrev
 
 # close screen
 super + shift + m
-	sleep 0.5; xset dpms force standby
+    betterlockscreen -s dim
 
 # lock screen
 super + shift + x
-	betterlockscreen -l pixel -t "Locked" 
+	betterlockscreen -l dim
