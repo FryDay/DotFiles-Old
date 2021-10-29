@@ -31,13 +31,15 @@ function gitclean
 }
 
 export GO111MODULE=on
-EDITOR=nvim
-VISUAL=~/.config/nnn/ewrap
+export EDITOR=nvim
+# export VISUAL=~/.config/nnn/ewrap
 
 plugins=(
   git
   sudo
+  zsh-completions
 )
+autoload -U compinit && compinit
 
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -64,6 +66,8 @@ export PATH="$PATH:$HOME/.local/bin"
 # export PATH="$PATH:$HOME/flutter/bin"
 
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+export SYSTEMD_EDITOR=vim
+export PIPEWIRE_LATENCY="256/96000"
 
 # alias
 unalias l

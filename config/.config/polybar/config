@@ -33,6 +33,7 @@ width = 100%
 height = 35
 radius = 6.0
 fixed-center = true
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -50,12 +51,11 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "DejaVu Sans Mono:size=14:antialias=false;2"
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=14;1
+font-1 = Font Awesome:size=14;1
 
 modules-left = bspwm
 modules-center = date
-; modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery temperature powermenu
+modules-right = spotify
 
 ;tray-position = right
 ;tray-padding = 2
@@ -88,16 +88,11 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "DejaVu Sans Mono:size=14:antialias=false;2"
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=14;1
-font-3 = "Font Awesome 5 Brands:pixelsize=11;1"
-font-4 = "MaterialIcons:size=12:antialias=false;2"
-font-5 = "icomoon:size=12:antialias=false;2"
-font-6 = "Ubuntu Nerd Font:size=12:antialias=false;2"
+font-1 = Font Awesome:size=14;1
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem xbacklight memory coreuse wlan eth battery temperature pulseaudio powermenu
+modules-right = filesystem memory coreuse pulseaudio powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -107,25 +102,10 @@ wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+[module/spotify]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = spotifyctl -q status --format '%{T2}%{F#0071BC}%{F-}%{T-} %artist%: %title%'
 
 [module/filesystem]
 type = internal/fs
@@ -164,11 +144,11 @@ label-empty-padding = 2
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
@@ -198,7 +178,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -208,7 +188,7 @@ type = internal/cpu
 interval = 2
 format-padding = 1
 format = <ramp-coreload><label>
-label = %{A1:$TERM -e=htop & disown:} %percentage%% %{A}
+label = %{A1:$TERM -e=htop & disown:} %percentage%% %{A}
 ramp-coreload-0 = ▂
 ramp-coreload-1 = ▃
 ramp-coreload-2 = ▄
@@ -253,11 +233,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s25
+interface = enp34s0
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -277,7 +257,7 @@ date-alt = %m/%d/%Y
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
@@ -440,4 +420,3 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-; vim:ft=dosini
