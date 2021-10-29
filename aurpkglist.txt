@@ -1,7 +1,8 @@
 nerd-fonts-complete
 oh-my-zsh-git
-paru
+paru-bin
 polybar
+polybar-spotify-module
 ttf-meslo-nerd-font-powerlevel10k
 visual-studio-code-bin
 zsh-theme-powerlevel10k-git
